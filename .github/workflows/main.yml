@@ -1,0 +1,20 @@
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+jobs:
+  sendmail:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - name: Send email
+          with:
+            port: 465
+            account: ${{secrets.ACCOUNT}}
+            password: ${{secrets.MAIL_PASSWORD}}
+            sender: devellany
+            from: ${{secrets.MAIL_ADDRESS}}
+            to: examenCSWanMatthew@mail.com
+            subject: mail title.
+            body: your messages.
