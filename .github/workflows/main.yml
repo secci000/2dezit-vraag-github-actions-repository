@@ -9,6 +9,7 @@ jobs:
       steps:
         - uses: actions/checkout@v2
         - name: Send email
+          uses: devellany/send-mail@v1.0.2
           with:
             port: 465
             account: ${{secrets.ACCOUNT}}
